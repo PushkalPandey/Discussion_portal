@@ -24,7 +24,6 @@ var submitBtn = document.getElementById("submitBtn");
 var questionContainer = document.getElementById("questionContainer");
 var showQueryContainer = document.getElementById("show_query");
 var createQuestionContainer = document.getElementById("createQuestionContainer");
-var submitAnswerBtn = document.getElementById("done");
 var nameArea = document.getElementById("res_name");
 var commentArea = document.getElementById("comment");
 var i=0;
@@ -45,6 +44,7 @@ var question = {
 
 
 var questions = getQuestions();
+console.log(questions);
 
 
 //Print all the todos initially stored in Local Storage
@@ -77,8 +77,11 @@ function addQuestion(subValue, questionValue){
     else{
         console.log("Incorrect Input");
     }
+    questions = getQuestions();
+    console.log(questions);
 }
 
+var index=0;
 
 //printQuestion
 function printQuestion(query){
@@ -105,10 +108,13 @@ function printQuestion(query){
         
         // console.log(selected);
         // console.log("query",query);
+        index=parseInt(selected.getAttribute('id').replace("id", ""));
+        console.log(index);
         showQueryContainer.style.display="block";
         createQuestionContainer.style.display="none";
     });
         
+        var submitAnswerBtn = document.getElementById("done");
         // submitAnswerBtn.setAttribute("value",value.title);
         submitAnswerBtn.addEventListener("click", function(){
             var nameVal=nameArea.value;
@@ -116,14 +122,14 @@ function printQuestion(query){
             var isValidInput = CheckValidInput(nameVal, commentVal);
             if(isValidInput){
                 console.log("Ok");
-
                 
-                console.log(query);
+                
+                console.log("questionsbefore",questions);
 
                 //To update the answer of particular question
-                query.answer.push({name:nameVal,comment:commentVal});
+                questions[index].answer.push({name:nameVal,comment:commentVal});
                 
-                console.log(query);
+                console.log("questionsafter",questions);
                 // printAnswers(value,nameVal,commentVal);
                 // saveAnswer(value);
                 // clearInput(nameArea,commentArea);
@@ -174,6 +180,7 @@ function initObject(subValue, quesionValue){
     question.title = subValue;
     question.description= quesionValue;
     question.isResolved= false;
+    question.answer= [];
     question.createdAt=new Date().toUTCString();
 }
 

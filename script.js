@@ -86,7 +86,7 @@ function printQuestion(query){
 
     var unitQuestionContainer = document.createElement("div");
     unitQuestionContainer.setAttribute("class","unitQuestionContainer");
-    unitQuestionContainer.setAttribute("id",i++);
+    unitQuestionContainer.setAttribute("id","id"+i++);
     questionContainer.appendChild(unitQuestionContainer);
 
     var subNode = document.createElement("h2");
@@ -96,12 +96,15 @@ function printQuestion(query){
     var textNode = document.createElement("p");
     textNode.innerText = query.description;
     unitQuestionContainer.appendChild(textNode);
-    
-
+    // var x=id;
+    const selected=document.querySelector(".unitQuestionContainer#id"+(i-1));
+    // console.log("selected",selected);
+    // console.log("query",query);
     //Btn Listener Part
-    unitQuestionContainer.addEventListener("click", function(){
+    selected.addEventListener("click", function(){
         
-        console.log(query);
+        // console.log(selected);
+        // console.log("query",query);
         showQueryContainer.style.display="block";
         createQuestionContainer.style.display="none";
     });

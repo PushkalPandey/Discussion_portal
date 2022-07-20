@@ -1,4 +1,4 @@
-# Discussion_portal
+# Doubt-Overflow_portal
 
 
 This is a Doubt discussion portal where users can post there answers and it can be answered by others.

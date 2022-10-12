@@ -7,3 +7,5 @@ Currently only front_end part is implemented, hence the project uses Local Stora
 <br>
 
 You can veiw the project on :- https://pushkalpandey.github.io/Discussion_portal/
+
+For further queries contact me at:- pushkal007pandey@gmail.com

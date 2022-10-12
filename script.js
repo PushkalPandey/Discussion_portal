@@ -133,7 +133,7 @@ function printQuestion(query){
         
         showResponses(index);
 
-        console.log(index);
+//         console.log(index);
         // console.log(clicked);
 
         show_title.innerHTML=questions[index].title;
@@ -149,8 +149,8 @@ function printQuestion(query){
         
 
         submitAnswerBtn.setAttribute("value",questions[index].title); 
-        console.log(submitAnswerBtn.value);
-        console.log(index);
+//         console.log(submitAnswerBtn.value);
+//         console.log(index);
         
         resolveBtn.setAttribute("value",questions[index].title); 
 
@@ -165,22 +165,22 @@ function printQuestion(query){
             var commentVal=commentArea.value;
             var isValidInput = CheckValidInput(nameVal, commentVal);
             if(isValidInput){
-                console.log("Ok");
+//                 console.log("Ok");
                 
                 
-                console.log("questionsbefore",questions);
-                console.log(selected);
+//                 console.log("questionsbefore",questions);
+//                 console.log(selected);
 
 
                 var x = {};
                 x.name = nameVal;
                 x.comment = commentVal;
-              console.log(submitAnswerBtn.value);
+//               console.log(submitAnswerBtn.value);
                 //To update the answer of particular question
                 for(var j = 0; j< questions.length; j++) {
                     if(questions[j].title === submitAnswerBtn.value) {
                         
-                        console.log(j);
+//                         console.log(j);
                         questions[j].answer.push(x);
                        
                         var json = JSON.stringify(questions);
@@ -196,7 +196,7 @@ function printQuestion(query){
 
                 // questions[index].answer.push({name:nameVal,comment:commentVal});
                 
-                console.log("questionsafter",questions);
+//                 console.log("questionsafter",questions);
                 showResponses(index);
                 // printAnswers(value,nameVal,commentVal);
                 // saveAnswer(value);
